@@ -1,0 +1,23 @@
+{
+  "author": "Iliyan Dimitrov <iliyan.dimitrovpr@gmail.com>",
+  "name": "vautex-tech-task",
+  "version": "1.0.0",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "jest test/tests",
+    "eslint": "eslint ./"
+  },
+  "keywords": [],
+  "license": "MIT",
+  "description": "",
+  "dependencies": {
+    "eslint": "^7.13.0",
+    "jest": "^26.6.3"
+  },
+  "jest": {
+    "verbose": false
+  }
+}
