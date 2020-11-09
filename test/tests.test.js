@@ -55,4 +55,14 @@ describe("validateOrder", () => {
         ];
         expect(validateOrder(custOrder)).toEqual(['error', 'Invalid Cassettes Number or Invalid bank note.']);
     });
+
+    test("returns true if there is sufficient number of bank notes to fulfill the request", () => {
+
+        const custOrder = [
+            ['cassettes', 0],
+            ['5', 10000],
+            ['2', 10000]
+        ];
+        expect(validateOrder(custOrder)).toEqual(['error', 'Invalid Cassettes Number or Invalid bank note.']);
+    });
 });
