@@ -19,17 +19,26 @@
 const validateOrder = order => {
 
     let cassetteQty = 0;
+    let checkFillCapacity = [];
 
     //Check if we have cassette qty and assign it to a variable 
-    if (order[0][0] === 'cassettes') {
+    if (order[0][0] === 'cassettes' && order[0][1] > 0) {
+
         cassetteQty = order[0][1];
+
+        //takes out the first element from the array
         order.shift();
+
+    } else if (order[0][1] <= 0) {
+
+        checkFillCapacity = ['error', 'Invalid Cassettes Number or Invalid bank note.'];
+
     } else {
         cassetteQty = 4;
     }
 
     //Check if all cassette orders are valid and fill up to capacity
-    let checkFillCapacity = order.map(el => {
+    checkFillCapacity = order.map(el => {
         return cassetteQty <= 4 && el[0] % 5 === 0 ?
             el[1] / el[0] === 2000 ?
                 ['valid', 'Order valid, sent for packing'] :
